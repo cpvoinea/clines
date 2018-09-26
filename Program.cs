@@ -44,7 +44,7 @@ namespace clines
                     while (!sr.EndOfStream)
                     {
                         var line = sr.ReadLine().Trim();
-                        if (line.Length > 2)
+                        if (line.Length > 4)
                         {
                             hasLines = true;
                             lineCount++;
