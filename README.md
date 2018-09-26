@@ -1,7 +1,8 @@
 # clines
-Count file lines
+Count (code) file lines.
 # Arguments
-clines [path] [mask]
+clines *path* *mask*
 # Example
 Count C# lines in current path (recursive):
-clines . *.cs
+
+    clines . \*.cs
