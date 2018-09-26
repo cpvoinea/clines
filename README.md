@@ -5,4 +5,4 @@ clines *path* *mask*
 # Example
 Count C# lines in current path (recursive):
 
-    clines . \*.cs
+    clines . *.cs
