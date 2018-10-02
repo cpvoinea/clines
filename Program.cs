@@ -37,6 +37,8 @@ namespace clines
             var files = Directory.GetFiles(path, mask, SearchOption.AllDirectories);
             int lineCount = 0;
             int fileCount = 0;
+            int total = files.Length;
+            int current = 0;
             foreach (string f in files)
             {
                 bool hasLines = false;
@@ -44,7 +46,7 @@ namespace clines
                     while (!sr.EndOfStream)
                     {
                         var line = sr.ReadLine().Trim().Trim('{', '}').Trim(';');
-                        if (line.Length > 0 && !line.StartsWith("//") && !line.StartsWith("/*"))
+                        if (line.Length > 0 && !line.StartsWith("//") && !line.StartsWith("/*") && !line.StartsWith("--"))
                         {
                             hasLines = true;
                             lineCount++;
@@ -52,7 +54,12 @@ namespace clines
                     }
                 if (hasLines)
                     fileCount++;
+                current++;
+                double percent = current * 100.0 / total;
+                Console.SetCursorPosition(0, Console.CursorTop);
+                Console.Write("{0,3:0.00}%", percent);
             }
+            Console.WriteLine();
             Console.WriteLine("{0} lines in {1} files.", lineCount, fileCount);
             Console.ReadKey(true);
         }
