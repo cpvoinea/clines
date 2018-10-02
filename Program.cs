@@ -39,6 +39,7 @@ namespace clines
             int fileCount = 0;
             int total = files.Length;
             int current = 0;
+            Console.CursorVisible = false;
             foreach (string f in files)
             {
                 bool hasLines = false;
@@ -59,6 +60,7 @@ namespace clines
                 Console.SetCursorPosition(0, Console.CursorTop);
                 Console.Write("{0,3:0.00}%", percent);
             }
+            Console.CursorVisible = true;
             Console.WriteLine();
             Console.WriteLine("{0} lines in {1} files.", lineCount, fileCount);
             Console.ReadKey(true);
