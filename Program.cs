@@ -58,7 +58,7 @@ namespace clines
                 current++;
                 double percent = current * 100.0 / total;
                 Console.SetCursorPosition(0, Console.CursorTop);
-                Console.Write("{0,3:0.00}%", percent);
+                Console.Write("{0:0.00}%", percent);
             }
             Console.CursorVisible = true;
             Console.WriteLine();
