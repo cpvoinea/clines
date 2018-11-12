@@ -46,8 +46,17 @@ namespace clines
                 using (var sr = new StreamReader(f))
                     while (!sr.EndOfStream)
                     {
-                        var line = sr.ReadLine().Trim().Trim('{', '}').Trim(';');
-                        if (line.Length > 0 && !line.StartsWith("//") && !line.StartsWith("/*") && !line.StartsWith("--") && !line.StartsWith("#"))
+                        var line = sr.ReadLine().Trim();
+                        if (line.Length > 0
+                            && !line.StartsWith("//")
+                            && !line.StartsWith("/*")
+                            && !line.StartsWith("--")
+                            && !line.StartsWith("#")
+                            && !line.StartsWith("{")
+                            && !line.StartsWith("}")
+                            && !line.StartsWith("\"")
+                            && !line.StartsWith("+")
+                            && !line.StartsWith(")"))
                         {
                             hasLines = true;
                             lineCount++;
